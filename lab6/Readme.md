@@ -23,15 +23,15 @@
 
   - Dockerfile (во вложении)
     - Команды которые могут понадобиться: 
-        docker ps
-        docker ps -a
-        docker run -d -p port:port container_name
-        docker stop container_name
-        docker logs container_name - вывод логов контейнеров
-        docker inspect container_name - информация по запущенному контейнеру 
-        docker build -t dockerhub_login/reponame:ver
-        docker push/pull
-        docker exec -it container_name bash
+        - docker ps
+        - docker ps -a
+        - docker run -d -p port:port container_name
+        - docker stop container_name
+        - docker logs container_name - вывод логов контейнеров
+        - docker inspect container_name - информация по запущенному контейнеру 
+        - docker build -t dockerhub_login/reponame:ver
+        - docker push/pull
+        - docker exec -it container_name bash
 
   - Файл index.html с любым содержимым
 
