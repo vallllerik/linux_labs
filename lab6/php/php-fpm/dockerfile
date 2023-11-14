@@ -1,0 +1,17 @@
+FROM php:latest
+
+RUN apk --no-cache add bash curl
+
+RUN mkdir -p /var/www/html \
+    && chown -R www-val:www-val /var/www/html \
+    && chmod 777 /var/www/html
+
+COPY index.php /var/www/html/
+
+EXPOSE 9000
+
+CMD ["php-fpm"]
+
+
+
+
