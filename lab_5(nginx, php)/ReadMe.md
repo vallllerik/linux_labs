@@ -16,12 +16,12 @@ systemctl enable php-fpm.service
         try_files $uri =404;
         }`
 ------------------------------------
-добавляем в основной блок server строчку "index index.php", комментируем или удаляем строчку "listen  [::]:80"
-6. Создаем файлик index.php: nano /usr/share/nginx/html/index.php
-7. Отключаем SeLinux (меняем enabled на disabled)
-8. Запускаем Nginx 
-systemctl start nginx
-systemctl enable nginx
+6. добавляем в основной блок server строчку "index index.php", комментируем или удаляем строчку "listen  [::]:80"
+7. Создаем файлик index.php: nano /usr/share/nginx/html/index.php
+8. Отключаем SeLinux (меняем enabled на disabled)
+9. Запускаем Nginx 
+`systemctl start nginx
+ systemctl enable nginx`
 
 
 # PG
