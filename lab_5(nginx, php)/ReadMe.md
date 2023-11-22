@@ -1,4 +1,4 @@
-***1) Webserver***
+#WEB
 
 1. устанавливаем nginx
 2. Меняем в /etc/php-fpm.d/www.conf user и group на nginx
@@ -24,7 +24,7 @@ systemctl start nginx
 systemctl enable nginx
 
 
-***2) PG***
+#PG
  
 1. устанавливаем PostgreSQL
 2. В nano /var/lib/pgsql/14/data/postgresql.conf
