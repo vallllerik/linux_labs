@@ -8,13 +8,13 @@ systemctl start php-fpm.service
 systemctl enable php-fpm.service
 5. Добавляем новый location в /etc/nginx/nginx.conf 
 ------------------------------------
- - location ~ .php$ {
+ - `location ~ .php$ {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_pass 127.0.0.1:9000;
         try_files $uri =404;
-        }
+        }`
 ------------------------------------
 добавляем в основной блок server строчку "index index.php", комментируем или удаляем строчку "listen  [::]:80"
 6. Создаем файлик index.php: nano /usr/share/nginx/html/index.php
