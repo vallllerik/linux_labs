@@ -1,0 +1,60 @@
+---
+# tasks file for pg
+
+# - name: Connect to .rpm PostgreSQL
+#   yum:
+#     name:
+#       - epel-release
+#       - https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+#     validate_certs: no
+#     state: present
+
+- name: Install PostgreSQL
+  yum:
+    name:  
+      - postgresql14-server
+      - wget
+      - unzip
+      - nano
+    state: present
+         
+- name: Initialize PostgreSQL
+  shell: "postgresql-14-setup initdb"
+  tags:
+    - initdb
+  ignore_errors: True
+
+- name: Replace postgresql.conf
+  copy:
+    src: postgresql.conf
+    dest: /var/lib/pgsql/14/data/postgresql.conf
+  notify:
+    - restart_postgresql-14
+
+- name: Replace pg_hba.conf
+  copy:
+    src: pg_hba.conf
+    dest: /var/lib/pgsql/14/data/pg_hba.conf
+
+- name: Enable postgresql service and start it
+  systemd:
+    name: postgresql-14
+    state: started
+    enabled: yes
+
+- name: Add database demo
+  copy:
+    src: demo_small.sql
+    dest: /var/lib/pgsql/demo_small.sql
+
+- name: Change password postgres
+  shell: sudo -u postgres psql -c "ALTER USER postgres WITH ENCRYPTED PASSWORD '1234';"
+  become_user: root
+  
+- name: Init database demo
+  shell: "PGPASSWORD='1234' psql -U postgres -h 192.168.11.90 -f /var/lib/pgsql/demo_small.sql"
+  
+- name: Disable SElinux
+  copy:
+    src: config
+    dest: /etc/selinux/config
