@@ -2,7 +2,8 @@
 
 ## Привет. Вы находитесь в репозитории [vallllerik](https://github.com/vallllerik/linux_labs)
 
-Данный репозиторий создан для сохранения всех работ по курсу "Основы работы с сетевыми операционными системами" и "Управление и администрирование операционных систем"
+Данный репозиторий создан для сохранения всех работ по курсу "Основы работы с сетевыми операционными системами" и "Управление и администрирование операционных систем".
+Лабораторные работы с Vagrant, Ansible, PostgreSQL, Nginx, Patroni, HAproxy, KeepAlived, NFS, Docker
 # Готовые работы:
 + [os_lab2](https://github.com/vallllerik/linux_labs/tree/master/os_labs2/ansible)
 + [os_lab3](https://github.com/vallllerik/linux_labs/tree/master/os_lab3)
